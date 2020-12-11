@@ -1,32 +1,54 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="wrapper">
+    <Header />
+    <div class="main">
+      <Messages />
+      <router-view />
     </div>
-    <router-view />
+    <Footer />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { Vue, Component} from "vue-property-decorator";
+import Header from "@/components/header/TheHeader.vue";
+import Footer from "@/components/footer/TheFooter.vue";
+import auth from "@/auth/auth";
+import Messages from "@/components/reusable/Messages.vue";
 
-#nav {
-  padding: 30px;
+@Component({
+  components: {
+    Messages,
+    Header,
+    Footer
+  }
+})
+export default class App extends Vue {
+  async created() {
+    await this.checkExistingAuth();
+  }
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  /**
+   * Check for existing auth credentials in local storage.
+   */
+  async checkExistingAuth() {
+    if (auth.hasCreds()) {
+      // assume that the user is authenticated
+      this.$store.commit('setAuthenticated', true);
+      const { OK, data, error } = await this.$api.users.me();
+      if (OK) {
+        this.$store.commit('loginUser', data);
+      } else {
+        this.$store.commit('setAuthenticated', false);
+        auth.removeCreds();
+        await this.$router.push({ name: 'SignIn' });
+      }
     }
   }
 }
+</script>
+
+<style lang="scss">
+@import "./styles/styles";
+@import "./styles/desktop";
 </style>
