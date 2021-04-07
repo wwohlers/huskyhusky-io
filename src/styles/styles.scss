@@ -19,6 +19,7 @@ $THEME: #a30709;
 $BACKGROUND: #F4F4F4;
 $DISPLAYGRAY: #DDD;
 $TEXTGRAY: #777;
+$MEDGRAY: #bfbfbf;
 $GREEN: #215e00;
 $SUCCESS_GREEN: #d4ffd4;
 $SUCCESS_BORDER: #84cf84;
@@ -200,6 +201,7 @@ a {
 
   .header__logo {
     height: $NAV_HEIGHT;
+    margin: 2em 0 1em 0;
   }
 
   .header__nav {
@@ -220,10 +222,17 @@ a {
     a {
       margin: 0.2em 0;
       color: $PRIMARY;
-      font-size: 20px;
+      font-size: 18px;
       text-decoration: none;
       text-transform: uppercase;
       font-weight: 700;
+      transition: 0.1s;
+      border-bottom: 2px solid $BACKGROUND;
+      padding-bottom: 0.3em;
+
+      &:hover {
+        border-bottom: 2px solid $THEME;
+      }
     }
 
     &.dropdown-mobile {
@@ -241,8 +250,11 @@ a {
 .article-clip {
   padding: 1em 0;
   border-bottom: 1px solid $DISPLAYGRAY;
+  max-height: 400px;
+  overflow-y: hidden;
 
   &.first-article {
+    max-height: none;
     padding-top: 0;
 
     .article-clip__thumb {
@@ -370,7 +382,7 @@ a {
   .section__toggle {
     font-family: $DISPLAY;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
   }
@@ -458,6 +470,8 @@ a {
     background: $BACKGROUND;
     z-index: 10;
     border: 1px solid $DISPLAYGRAY;
+    max-height: 500px;
+    overflow: scroll;
 
     .selector__dropdown__option {
       padding: 0.5em 0.8em;
