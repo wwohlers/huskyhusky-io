@@ -6,7 +6,7 @@
         :key="article._id"
         @click="visitArticle(article)"
     >
-      <router-link :to="`/article/${article.name}`">
+      <router-link :to="`/article/${article.name}`" class="no-underline">
         <img class="archive-item__thumb" :src="article.image" />
         <div class="archive-item__details">
           <div class="archive-item__details__title">{{ article.title }}</div>

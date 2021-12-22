@@ -22,6 +22,8 @@
       <div class="article__content">
         <div class="article__content__text" v-html="$html.renderHtml(article.text)" />
         <Comments :comments="article.comments" :article-id="article._id" />
+        <br />
+        <br />
         <Suggestions :tag="randomTag" :number-to-show="5" :avoid-id="article._id" />
       </div>
     </div>
@@ -47,6 +49,7 @@ export default class ArticleView extends Vue {
     if (this.article) {
       this.$meta.setTitle(this.article.title);
       this.$meta.setDesc(this.article.brief);
+      this.$meta.setOgImage(this.article.image);
     } else {
       this.$meta.setTitle("Not Found");
     }

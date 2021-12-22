@@ -38,7 +38,7 @@ export default class Comments extends Vue {
   @Prop() comments!: Comment[];
   private commentName = "";
   private commentContent = "";
-  private showCreateComment = false;
+  private showCreateComment = true;
 
   /**
    * Submits a comment.

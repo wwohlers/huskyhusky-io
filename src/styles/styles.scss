@@ -164,11 +164,16 @@ table {
 
 a {
   text-decoration: none;
+  border-bottom: 1px solid $PRIMARY;
   cursor: pointer;
   color: $PRIMARY;
 
   &.small {
     font-size: 14px;
+  }
+
+  &.no-underline {
+    border-bottom: none;
   }
 }
 
@@ -250,7 +255,7 @@ a {
 .article-clip {
   padding: 1em 0;
   border-bottom: 1px solid $DISPLAYGRAY;
-  max-height: 400px;
+  max-height: 500px;
   overflow-y: hidden;
 
   &.first-article {
@@ -262,7 +267,8 @@ a {
     }
 
     .article-clip__title {
-      font-size: 24px;
+      font-size: 28px;
+      text-transform: uppercase;
     }
 
     .article-clip__brief {
@@ -288,7 +294,8 @@ a {
   .article-clip__title {
     display: block;
     margin: 0.4em 0;
-    font-size: 20px;
+    font-size: 22px;
+    text-transform: uppercase;
     font-family: $TEXT;
   }
 
@@ -326,6 +333,7 @@ a {
     text-transform: uppercase;
     display: inline-block;
     margin: 0.5em 0.25em 0.5em 0;
+    cursor: pointer;
   }
 
   .article__attr {
@@ -586,6 +594,7 @@ a {
     text-decoration: none;
     display: block;
     margin: 0.2em 0;
+    border: none;
   }
 }
 
