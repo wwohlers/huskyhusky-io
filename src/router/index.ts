@@ -63,13 +63,13 @@ const router = new VueRouter({
 
 // Router guard that protects user-only and admin-only routes
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth || to.meta.requiresAdmin) {
+  if (to.meta && (to.meta.requiresAuth || to.meta.requiresAdmin)) {
     const int = setInterval(() => {
       // Wait for auth to be resolved
       if (!store.getters.isAuthenticated || store.getters.user) {
         clearInterval(int);
         if (!store.getters.isAuthenticated) return next({ name: 'SignIn' });
-        if (to.meta.requiresAdmin && !store.getters.user.admin) return next({ name: 'Home' });
+        if (to.meta && (to.meta.requiresAdmin && !store.getters.user.admin)) return next({ name: 'Home' });
         return next();
       }
     }, 100)

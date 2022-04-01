@@ -4,8 +4,13 @@
     <p>
     We are a small online satire magazine run by Northeastern students. Please don't leave.
     </p>
+    <h2>Interested in writing for us?</h2>
     <p>
-      Got an idea? <a href="mailto:thehuskyhusky@gmail.com">Email us.</a>
+      Use <a href="">this</a> form to apply.
+    </p>
+    <h2>Got an idea?</h2>
+    <p>
+      Got an idea? <a href="mailto:thehuskyhuskynews@gmail.com">Email us.</a>
     </p>
   </div>
 </template>
