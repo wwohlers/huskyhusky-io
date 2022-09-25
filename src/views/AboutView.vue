@@ -6,11 +6,11 @@
     </p>
     <h2>Interested in writing for us?</h2>
     <p>
-      Use <a href="">this</a> form to apply.
+      Use <a href="https://forms.gle/P421oUSvQXwJcik49">this</a> form to apply.
     </p>
     <h2>Got an idea?</h2>
     <p>
-      Got an idea? <a href="mailto:thehuskyhuskynews@gmail.com">Email us.</a>
+      Got an idea? <a href="mailto:huskyhuskymail@gmail.com">Email us.</a>
     </p>
   </div>
 </template>

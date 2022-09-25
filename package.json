@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && aws s3 sync dist/ s3://huskyhusky-staging --profile huskyhusky"
+    "deploy": "npm run build && aws s3 sync dist/ s3://huskyhusky-staging --profile huskyhusky && aws cloudfront create-invalidation --distribution-id ER2C24FFNO4KD --paths '/*' --profile huskyhusky"
   },
   "dependencies": {
     "axios": "^0.21.0",
